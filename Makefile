@@ -31,4 +31,3 @@ debug: kernel
 
 clean:
 	rm $(OBJECTS)
-	rm kernel

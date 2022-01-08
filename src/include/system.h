@@ -41,8 +41,6 @@ void irq_install();
 
 void irs_install_handler(int32_t irs, void (*handler)(register_t *r));
 
-void timer_install(uint32_t frequency);
-
 void idt_set_gate(uint8_t num, uint32_t base, uint16_t sel, uint8_t flags);
 
 void keyborad_install();
