@@ -1,7 +1,7 @@
-#ifndef __SYSTEM_H
-#define __SYSTEM_H
+#ifndef __SΥSΤΕΜ_Η
+#define __SΥSΤΕΜ_Η
 
-#define NULL 0
+#define ΝULL 0
 
 typedef char int8_t;
 typedef short int16_t;

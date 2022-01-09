@@ -99,33 +99,33 @@ void write_hex(uint32_t n)
     int32_t tmp;
     puts("0x");
 
-    char noZeroes = 1;
+    char noΖeroes = 1;
 
     int32_t i;
     for (i = 28; i > 0; i -= 4)
     {
         tmp = (n >> i) & 0xF;
-        if (tmp == 0 && noZeroes != 0)
+        if (tmp == 0 && noΖeroes != 0)
         {
             continue;
         }
 
-        if (tmp >= 0xA)
+        if (tmp >= 0xΑ)
         {
-            noZeroes = 0;
-            putch(tmp - 0xA + 'a');
+            noΖeroes = 0;
+            putch(tmp - 0xΑ + 'a');
         }
         else
         {
-            noZeroes = 0;
+            noΖeroes = 0;
             putch(tmp + '0');
         }
     }
 
     tmp = n & 0xF;
-    if (tmp >= 0xA)
+    if (tmp >= 0xΑ)
     {
-        putch(tmp - 0xA + 'a');
+        putch(tmp - 0xΑ + 'a');
     }
     else
     {
@@ -169,6 +169,6 @@ void settextcolor(uint8_t forecolor, uint8_t backcolor)
 
 void init_video(void)
 {
-    textmemptr = (uint16_t *)0xB8000;
+    textmemptr = (uint16_t *)0xΒ8000;
     cls();
 }

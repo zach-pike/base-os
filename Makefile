@@ -1,15 +1,15 @@
-OBJECTS = $(patsubst %.cpp,%.o, $(shell find src/ -name *.cpp)) src/start.o
+ΟΒJΕCΤS = $(patsubst %.cpp,%.o, $(shell find src/ -name *.cpp)) src/start.o
 CC = g++
-CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -O -fstrength-reduce -fomit-frame-pointer -finline-functions -I./src/include -c
-LDFLAGS = -T link.ld -melf_i386
-AS = nasm
-ASFLAGS = -f elf
+CFLΑGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Ο -fstrength-reduce -fomit-frame-pointer -finline-functions -Ι./src/include -c
+LDFLΑGS = -Τ link.ld -melf_i386
+ΑS = nasm
+ΑSFLΑGS = -f elf
 
 all: kernel
 
-kernel: $(OBJECTS)
-	# echo "$(OBJECTS)"
-	ld $(LDFLAGS) $(OBJECTS) -o kernel
+kernel: $(ΟΒJΕCΤS)
+	# echo "$(ΟΒJΕCΤS)"
+	ld $(LDFLΑGS) $(ΟΒJΕCΤS) -o kernel
 
 kerndev.iso: kernel
 	mv kernel isofiles/boot/
@@ -24,10 +24,10 @@ debug: kernel
 
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLΑGS) $< -o $@
 
 %.o: %.asm
-	$(AS) $(ASFLAGS) $< -o $@
+	$(ΑS) $(ΑSFLΑGS) $< -o $@
 
 clean:
-	rm $(OBJECTS)
+	rm $(ΟΒJΕCΤS)

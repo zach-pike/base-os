@@ -1,24 +1,24 @@
-ENTRY(start)
+ΕΝΤRΥ(start)
 phys = 0x00100000;
-SECTIONS
+SΕCΤΙΟΝS
 {
-    .text phys : AT(phys) {
+    .text phys : ΑΤ(phys) {
         code = .;
         *(.text)
         *(.rodata)
-        . = ALIGN(4096);
+        . = ΑLΙGΝ(4096);
     }
-    .data : AT(phys + (data - code))
+    .data : ΑΤ(phys + (data - code))
     {
         data = .;
         *(.data)
-        . = ALIGN(4096);
+        . = ΑLΙGΝ(4096);
     }
-    .bss : AT(phys + (bss - code))
+    .bss : ΑΤ(phys + (bss - code))
     {
         bss = .;
         *(.bss)
-        . = ALIGN(4096);
+        . = ΑLΙGΝ(4096);
     }
     end = .;
 }

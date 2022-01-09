@@ -3,19 +3,19 @@ start:
     mov esp, _sys_stack
     jmp stublet
 
-ALIGN 4
+ΑLΙGΝ 4
 mboot:
-    MULTIBOOT_PAGE_ALIGN    equ 1<<0
-    MULTIBOOT_MEMORY_INFO   equ 1<<1
-    MULTIBOOT_AOUT_KLUDGE   equ 1<<16
-    MULTIBOOT_HEADER_MAGIC  equ 0x1BADB002
-    MULTIBOOT_HEADER_FLAGS    equ MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | MULTIBOOT_AOUT_KLUDGE
-    MULTIBOOT_CHECKSUM      equ -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)
-    EXTERN code, bss, end
+    ΜULΤΙΒΟΟΤ_ΡΑGΕ_ΑLΙGΝ    equ 1<<0
+    ΜULΤΙΒΟΟΤ_ΜΕΜΟRΥ_ΙΝFΟ   equ 1<<1
+    ΜULΤΙΒΟΟΤ_ΑΟUΤ_ΚLUDGΕ   equ 1<<16
+    ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_ΜΑGΙC  equ 0x1ΒΑDΒ002
+    ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_FLΑGS    equ ΜULΤΙΒΟΟΤ_ΡΑGΕ_ΑLΙGΝ | ΜULΤΙΒΟΟΤ_ΜΕΜΟRΥ_ΙΝFΟ | ΜULΤΙΒΟΟΤ_ΑΟUΤ_ΚLUDGΕ
+    ΜULΤΙΒΟΟΤ_CΗΕCΚSUΜ      equ -(ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_ΜΑGΙC + ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_FLΑGS)
+    ΕΧΤΕRΝ code, bss, end
 
-    dd MULTIBOOT_HEADER_MAGIC
-    dd MULTIBOOT_HEADER_FLAGS
-    dd MULTIBOOT_CHECKSUM
+    dd ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_ΜΑGΙC
+    dd ΜULΤΙΒΟΟΤ_ΗΕΑDΕR_FLΑGS
+    dd ΜULΤΙΒΟΟΤ_CΗΕCΚSUΜ
 
     dd mboot
     dd code
@@ -31,8 +31,8 @@ stublet:
 global gdt_flush
 extern gp
 gdt_flush:
-    lgdt [gp]           ; Load the new GDT pointer
-    mov ax, 0x10        ; 0x10 is the offset in the GDT to the data segment
+    lgdt [gp]           ; Load the new GDΤ pointer
+    mov ax, 0x10        ; 0x10 is the offset in the GDΤ to the data segment
     mov ds, ax          ; Load all data segment selectors
     mov es, ax
     mov fs, ax
@@ -431,7 +431,7 @@ irq_common_stub:
     add esp, 8
     iret
 
-SECTION .bss
+SΕCΤΙΟΝ .bss
     resb 8192
 
 _sys_stack:
